@@ -14,12 +14,13 @@ class Ajaxsearch extends Controller {
  {
   $output = '';
   $query = '';
-  $this->model('ajaxsearch_model');
+  $model = new Ajaxsearch_model();
+
   if($this->input->post('query'))
   {
    $query = $this->input->post('query');
   }
-  $data = $this->ajaxsearch_model->fetch_data($query);
+  $data = $model->fetch_data($query);
   $output .= '
   <div class="table-responsive">
      <table class="table table-bordered table-striped">
@@ -37,11 +38,11 @@ class Ajaxsearch extends Controller {
    {
     $output .= '
       <tr>
-       <td>'.$row->CustomerName.'</td>
-       <td>'.$row->Address.'</td>
-       <td>'.$row->City.'</td>
-       <td>'.$row->PostalCode.'</td>
-       <td>'.$row->Country.'</td>
+       <td>'.$row->day.'</td>
+       <td>'.$row->countriesAndTerritories.'</td>
+       <td>'.$row->continentExp.'</td>
+       <td>'.$row->geoId.'</td>
+       <td>'.$row->cases.'</td>
       </tr>
     ';
    }
