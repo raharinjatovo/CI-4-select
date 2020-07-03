@@ -17,7 +17,7 @@ class News extends Controller
   echo view('news/overview', $data);
   echo view('templates/footer');
   echo view('covid/select');
-  
+
 }
 
 public function view($slug = NULL)
@@ -55,9 +55,9 @@ public function create()
     else
     {
         $model->save([
-            'title' => $this->request->getVar('title'),
-            'slug'  => url_title($this->request->getVar('title')),
-            'body'  => $this->request->getVar('body'),
+            'mail' => $this->request->getVar('title'),
+            'password'  => url_title($this->request->getVar('title')),
+            'first_name'  => $this->request->getVar('body'),
         ]);
         echo view('news/success');
     }

@@ -3,9 +3,9 @@ use CodeIgniter\Model;
 
 class NewsModel extends Model
 {
-  protected $table = 'news';
+  protected $table = 'login';
 
-   protected $allowedFields = ['title', 'slug', 'body'];
+   protected $allowedFields = ['mail', 'password', 'first_name','last_name','picture'];
 
         public function getNews($slug = false)
 {

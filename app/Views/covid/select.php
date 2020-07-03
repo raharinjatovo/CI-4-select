@@ -125,6 +125,20 @@
               </div>
            </div>
       </div>
+      <?php
+      const DEFAULT_URL = 'http://www.google.com';
+      require_once 'sharer.php';
+
+      $sharer = new sharer();
+      echo $sharer->facebook(DEFAULT_URL).'<br/>';
+      echo $sharer->twitter(DEFAULT_URL).'<br/>';
+      echo $sharer->whatsapp(DEFAULT_URL).'<br/>';
+      echo $sharer->linkedin(DEFAULT_URL).'<br/>';
+      echo $sharer->messenger(DEFAULT_URL).'<br/>';
+      echo $sharer->flipboard(DEFAULT_URL).'<br/>';
+      echo $sharer->mail(DEFAULT_URL).'<br/>';
+      echo $sharer->copy(DEFAULT_URL).'<br/>';
+      ?>
 <h2><?= $title ?></h2>
 
 

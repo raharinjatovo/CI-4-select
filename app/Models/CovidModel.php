@@ -4,12 +4,48 @@ use CodeIgniter\Model;
 
 class CovidModel extends Model
 {
-  protected $table = 'geo_dist';
-  protected  $geold='AF';
-  protected $allowedFields = [ 'cases', 'countriesAndTerritories'];
+ protected $table = 'geo_dist';
 
-  Protected $primaryKey = "id_covid";
 
+
+ public function match($value='')
+ {
+   return $this->select('geoId')
+
+
+               ->where('countriesAndTerritories',$value)
+
+               ->findAll(1);
+
+ }
+ public function cases($value='')
+ {
+   return $this->select('cases')
+               ->select('day')
+               ->select('month')
+               ->select('year')
+
+
+               ->where('countriesAndTerritories',$value)
+
+               ->findAll();
+
+ }
+public function fetch($value='')
+{
+  return $this->select('countriesAndTerritories')
+              ->select('popData2018')
+              ->select('continentExp')
+              ->select('geoId')
+
+              ->selectSum("deaths")
+              ->selectSum("cases")
+
+              ->where('countriesAndTerritories',$value)
+
+              ->findAll();
+
+}
 
 
 public function bycontinent($title='',$james='',$filter='',$date='',$month='',$country='',$continent='')

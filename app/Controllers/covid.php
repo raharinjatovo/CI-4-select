@@ -23,6 +23,13 @@ use App\Models\CovidModel;
       //echo view('templates/footer');
       echo view('covid/select',$data);
     }
+    public function login($value='')
+    {
+      // lets start new session
+      $session = \Config\Services::session($config);
+
+         echo view('welcome_message');
+    }
     public function world($value='')
     {
 

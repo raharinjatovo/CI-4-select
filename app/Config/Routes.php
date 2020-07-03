@@ -30,12 +30,13 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::index');
+//$routes->get('/', 'Pages::index');
 // $routes->get('/', 'Test::index');
 // $routes->get('/', 'covid::index');
 // $routes->get('news/(:segment)', 'News::view/$1');
 // $routes->get('news', 'News::index');
  $routes->get('covid', 'covid::index');
+ $routes->get('/', 'Home::index');
  $routes->get('(:/)', 'covid::hello/$1');
  $routes->get('(/)', 'covid::world/$1');
  $route['(:any)'] = 'CI/public/$1';
