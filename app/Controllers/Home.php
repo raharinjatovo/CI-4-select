@@ -81,6 +81,14 @@ class Home extends Controller
 
 			}
 	}
+	public function check()
+	{
+		$model= new CovidModel();
+		echo "<pre>";
+		print_r($model->cases('Madagascar'));
+		echo "</pre>";
+		// code...
+	}
 	public function confirm()
 	{
 		helper('form');
@@ -369,7 +377,7 @@ foreach($html->find('tr') as $row) {
 				$data=[
 					'geo_dist'  =>  $model->fetch($value),
 					'locate'  =>  $model1->locate(),
-					'cas'  =>  $model1->cases($value),
+					'cas'  =>  $model->cases($value),
 
 
 					'countriesAndTerritories' => 'an',
@@ -380,6 +388,7 @@ foreach($html->find('tr') as $row) {
 				foreach ($key as $key1 ) {
 					$data=[
 						'geo_dist'  =>  $model->fetch($value),
+
 						'locate'  =>  $model1->locate($key1),
 
 

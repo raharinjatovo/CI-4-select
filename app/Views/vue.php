@@ -399,13 +399,17 @@
                      <?php foreach ($cas as $news_item): ?>
                        <?php $x .= '"'.$news_item['day'].'-­'.$news_item['month'].'-­'.$news_item['year'].'",­' ?>
                        <?php $y .= $news_item['cases'].',' ?>
+                       <?= $news_item['cases']; ?>
                     <?php endforeach; ?>
-                        eto
+                    bonjour
+
             <?php endif ?>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="info-box">
+
                 <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
                 <div class="info-box-content">
+                  <?=$y ?>
                   <span class="info-box-text">continent</span>
                   <span class="info-box-number"><?= $news_item['continentExp'] ?></span>
                 </div><!-- /.info-box-content -->
