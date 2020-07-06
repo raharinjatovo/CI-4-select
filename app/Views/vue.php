@@ -866,10 +866,14 @@
                   <span class="info-box-number"><?= number_format($news_item['cases'], 0, ',', ' ') ?>
                   </span>
                   <div class="progress">
-                    <div class="progress-bar" style="width: <?= number_format(($news_item['cases']/$news_item['popData2018'])*100, 2, '.', ''); ?>%"></div>
+                    <div class="progress-bar" style="width: <?php if(isset($news_item['cases'])){ echo number_format(($news_item['cases']/$news_item['popData2018'])*100, 2, '.', '');} ?>%"></div>
                   </div>
                   <span class="progress-description">
-                  <?= number_format(($news_item['cases']/$news_item['popData2018'])*100, 2, '.', ''); ?> % of Population
+                    <?php if(isset($news_item['cases'])){
+                      echo number_format(($news_item['cases']/$news_item['popData2018'])*100, 2, '.', '');
+                    } ?>
+                 % of Population
+
                   </span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
@@ -879,10 +883,10 @@
                   <span class="info-box-text">Deaths</span>
                   <span class="info-box-number"><?= number_format($news_item['deaths'], 0, ',', ' ') ?></span>
                   <div class="progress">
-                    <div class="progress-bar" style="width: <?= number_format(($news_item['deaths']/$news_item['cases'])*100, 2, '.', ''); ?>%"></div>
+                    <div class="progress-bar" style="width: <?php if(isset($news_item['deaths'])){echo number_format(($news_item['deaths']/$news_item['cases'])*100, 2, '.', ''); } ?>%"></div>
                   </div>
                   <span class="progress-description">
-                      <?= number_format(($news_item['deaths']/$news_item['cases'])*100, 2, '.', ''); ?> % of Cases
+                      <?php if(isset($news_item['deaths'])){echo number_format(($news_item['deaths']/$news_item['cases'])*100, 2, '.', '');} ?> % of Cases
                   </span>
                 </div><!-- /.info-box-content -->
               </div><!-- /.info-box -->
